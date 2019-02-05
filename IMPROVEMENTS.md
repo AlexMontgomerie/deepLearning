@@ -1,0 +1,6 @@
+ - triplet loss with exponential penalty
+ - unet with more layers
+ - greater epochs
+ - investigate multiclass classifiers
+ - auto-encoders
+ - applying extra transforms to increase training size
