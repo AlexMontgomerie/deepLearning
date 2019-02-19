@@ -28,8 +28,7 @@
 \title{EE3 Deep Learning Interim Report}
 
 \author{Alexander Montgomerie-Corcoran\\
-\texttt{01052454}\\
-{\tt\small am9215@ic.ac.uk}
+{\tt\small CID: 01052454, am9215@ic.ac.uk}
 }
 
 \maketitle
@@ -56,15 +55,29 @@ Image matching tasks use a sequence of patches to classify the similarity of the
 The patch retrieval task attempts to find a patch within a group of patches which correspond to the reference patch.
 
 \section{Baseline Approach}
-The baseline approach takes a uniform approach to each task, and splits up the problem into two sections: patch denoising and patch descriptor.
+The baseline method separates the problem into denoising and descriptor learning, and employs popular methods for each.
+%The baseline approach takes a uniform approach to each task, and splits up the problem into two sections: patch denoising and patch descriptor.
+
 
 \subsection{Patch Denoising}
-The patch denoising network makes use of U-Net \cite{RonnebergerFB15}, a popular image segmentation network.
+The patch denoising network makes use of U-Net \cite{RonnebergerFB15}, a popular image segmentation network with use in denoising tasks aswell. This network utilises convolutional layers to extract the major features of the image. Through upsampling and layer concatenation, these features are re-combined to produce a reconstructed image with less noise. 
+
+This network is trained on noisy images evaluated against noiseless images. L2 loss is employed. Figure \ref{fig:denoise_loss} shows that it is able to converge to reach both low validation and training loss, however looking a example outputs in figure \ref{fig:denoise_images}, there is obvious variation between the example and denoised image. As the validation loss decreases, this suggests that a more appropriate loss function is needed.
+
+% could also look at this problem in a different domain.  
 
 \subsection{Patch Descriptor}
+A network is defined to extract discriminant features of each patch. This network is derived from L2-net ... %TODO: explain.
+The network consisted of convolutional layers which extract shift-invariant features of the patch. A fully connected layer is used to obtain the most significant features. This network is trained in using triplets , with a reference, positive and negative example given. The network learns features such that the L2 distance is maximised between reference and negative features, and minimised between positive and reference features.
+
+% TODO: report timing, all that shit
+
+There are improvements to be made to the loss function for this network also. 
+
 
 \section{Improved Approach}
 
+To improve on the de-noising network, loss functions such as L1 loss and SISSM will be investigated, as they have proven more appropriate for image reconstruction tasks \cite{something}. 
 
 {\small
 \bibliographystyle{ieee}
