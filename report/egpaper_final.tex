@@ -1,0 +1,74 @@
+\documentclass[10pt,twocolumn,letterpaper]{article}
+
+\usepackage{cvpr}
+\usepackage{times}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% Include other packages here, before hyperref.
+
+% If you comment hyperref and then uncomment it, you should delete
+% egpaper.aux before re-running latex.  (Or just hit 'q' on the first latex
+% run, let it finish, and you should be clear).
+\usepackage[breaklinks=true,bookmarks=false]{hyperref}
+
+\cvprfinalcopy % *** Uncomment this line for the final submission
+
+\def\cvprPaperID{****} % *** Enter the CVPR Paper ID here
+\def\httilde{\mbox{\tt\raisebox{-.5ex}{\symbol{126}}}}
+
+% Pages are numbered in submission mode, and unnumbered in camera-ready
+%\ifcvprfinal\pagestyle{empty}\fi
+\setcounter{page}{1}
+\begin{document}
+
+%%%%%%%%% TITLE
+\title{EE3 Deep Learning Interim Report}
+
+\author{Alexander Montgomerie-Corcoran\\
+\texttt{01052454}\\
+{\tt\small am9215@ic.ac.uk}
+}
+
+\maketitle
+%\thispagestyle{empty}
+
+%%%%%%%%% ABSTRACT
+\begin{abstract}
+   This work investigates verification, matching and retrieval tasks for the N-HPatches dataset, a noisy version of the HPatches dataset \cite{hpatches_2017_cvpr}.
+   A baseline approach is taken by first performing denoising on each patch, then deriving a descriptor for a patch. The baseline method achieves 0.086 mAP for matching, 0.64 mAP for retrieval and TODO for verification.
+\end{abstract}
+
+%%%%%%%%% BODY TEXT
+\section{Introduction}
+\subsection{Dataset}
+The HPatches dataset consists of sequences of patches extracted from various images. For every reference image, there are a set of patch sequences for the same subject with either viewpoint changes or illumination changes. These illumination variations can be characterised as varying brightness across the reference image. Viewpoint changes come from different perspectives of the subject, as well as artificial geometric noise applied to the patches. These non-reference sequences are ranked by their viewpoint and illumination variation, and are either \textit{easy, hard} or \textit{tough}. N-HPatches applies an additional random pixel noise to each patch, with the intensity of this noise based on the patch's rank.
+
+\subsection{Tasks}
+The N-HPatches dataset is used for three different problem classes. 
+
+The patch verification task consists of classifying the similarity of individual patches. A good descriptor is able to tell if two patches are the same, regardless of any noise.
+
+Image matching tasks use a sequence of patches to classify the similarity of the image they are extracted from. This descriptor will take a sequence of both reference patches and test patches, and derive the similarity of these sequences using a given function. This is usually done by applying a metric to a sequence of descriptors.
+
+The patch retrieval task attempts to find a patch within a group of patches which correspond to the reference patch.
+
+\section{Baseline Approach}
+The baseline approach takes a uniform approach to each task, and splits up the problem into two sections: patch denoising and patch descriptor.
+
+\subsection{Patch Denoising}
+The patch denoising network makes use of U-Net \cite{RonnebergerFB15}, a popular image segmentation network.
+
+\subsection{Patch Descriptor}
+
+\section{Improved Approach}
+
+
+{\small
+\bibliographystyle{ieee}
+\bibliography{egbib}
+}
+
+\end{document}
