@@ -1,2 +1,7 @@
+hpatches/
 .ipynb_checkpoints/
 data/
+out/
+results/
+*.pyc
+tasks/*
