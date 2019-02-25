@@ -1,4 +1,4 @@
-import common
+from common import *
 
 # denoise model
 def get_denoise_model(shape):
