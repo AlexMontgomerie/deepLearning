@@ -1,0 +1,14 @@
+\begin{thebibliography}{1}\itemsep=-1pt
+
+\bibitem{hpatches_2017_cvpr}
+V.~Balntas, K.~Lenc, A.~Vedaldi, and K.~Mikolajczyk.
+\newblock Hpatches: A benchmark and evaluation of handcrafted and learned local
+  descriptors.
+\newblock In {\em CVPR}, 2017.
+
+\bibitem{RonnebergerFB15}
+O.~Ronneberger, P.~Fischer, and T.~Brox.
+\newblock U-net: Convolutional networks for biomedical image segmentation.
+\newblock {\em CoRR}, abs/1505.04597, 2015.
+
+\end{thebibliography}
