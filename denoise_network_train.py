@@ -24,8 +24,8 @@ denoise_model = get_denoise_model(shape)
 
 # callbacks
 callbacks = [
-    keras.callbacks.EarlyStopping(monitor = 'val_loss', patience = 5, verbose = 3, mode= 'auto'),
-    keras.callbacks.ModelCheckpoint('data/denoise_model.weights.{epoch:02d}-{val_loss:.2f}.hdf5', verbose=1, save_best_only=True)
+    keras.callbacks.EarlyStopping(monitor = 'val_loss', patience = 5, verbose = 3, mode= 'auto')
+    #keras.callbacks.ModelCheckpoint('data/denoise_model.weights.{epoch:02d}-{val_loss:.2f}.hdf5', verbose=1, save_best_only=True)
 ]
 
 # optimiser
@@ -36,7 +36,7 @@ loss = 'mean_absolute_error'
 
 # train network
 denoise_model.compile(loss=loss, optimizer=opt, metrics=['accuracy'])
-denoise_history = denoise_model.fit_generator(generator=denoise_generator, epochs=EPOCHS, callbacks=callbacks,
+denoise_history = denoise_model.fit_generator(generator=denoise_generator, epochs=EPOCHS, callbacks=callbacks, steps_per_epoch=1,
                                               verbose=1, validation_data=denoise_generator_val)
 
 # plot training curves
