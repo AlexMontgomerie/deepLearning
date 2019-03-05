@@ -16,8 +16,63 @@ splits = ['a', 'b', 'c', 'view', 'illum']
 tps = ['ref','e1','e2','e3','e4','e5','h1','h2','h3','h4','h5',\
        't1','t2','t3','t4','t5']
 
+class stnHPatches(keras.utils.Sequence):
+    """Class for loading an HPatches sequence from a sequence folder"""
+    itr = ['e1','e2','e3','e4','e5','h1','h2','h3','h4','h5',\
+       't1','t2','t3','t4','t5']
 
+    def __init__(self, seqs, batch_size = 32):
+        self.all_paths = []
+        self.batch_size = batch_size
+        self.dim = (32, 32)
+        self.n_channels = 1
+        self.sequences = {}
+        self.sequences_n = {}
+        for base in tqdm(seqs):
+            name = base.split('/')
+            self.name = name[-1]
+            self.base = base
+            for t in self.itr:
+                im_path = os.path.join(base, t + '.png')
+                img_n = cv2.imread(os.path.join(base, t + '.png'), 0)
+                img   = cv2.imread(os.path.join(base, 'ref' + '.png'), 0)
+                N = img.shape[0] / 32
+                seq_im = np.array(np.split(img, N),
+                                  dtype=np.uint8)
+                seq_im_n = np.array(np.split(img_n, N),
+                                    dtype=np.uint8)
+                for i in range(int(N)):
+                    path = os.path.join(base, t, str(i) + '.png')
+                    self.all_paths.append(path)
+                    self.sequences[path] = seq_im[i]
+                    self.sequences_n[path] = seq_im_n[i]
+        self.on_epoch_end()
 
+    def get_images(self, index):
+        path = self.all_paths[index]
+        img = self.sequences[path].astype(np.float32)
+        img_n = self.sequences_n[path].astype(np.float32)
+        return img, img_n
+
+    def __len__(self):
+        '''Denotes the number of batches per epoch'''
+        return int(np.floor(len(self.all_paths) / self.batch_size))
+
+    def __getitem__(self, index):
+        img_clean = np.empty((self.batch_size,) + self.dim + (self.n_channels,))
+        img_noise = np.empty((self.batch_size,) + self.dim + (self.n_channels,))
+
+        for i in range(self.batch_size):
+            img, img_n = self.get_images(index*self.batch_size+i)    
+            img_clean[i] = np.expand_dims(img, -1)
+            img_noise[i] = np.expand_dims(img_n, -1)
+
+        return img_noise, img_clean    
+
+    def on_epoch_end(self):
+        # 'Updates indexes after each epoch'
+        random.shuffle(self.all_paths))
+		
 
 class DenoiseHPatches(keras.utils.Sequence):
     """Class for loading an HPatches sequence from a sequence folder"""
