@@ -16,7 +16,7 @@ splits = ['a', 'b', 'c', 'view', 'illum']
 tps = ['ref','e1','e2','e3','e4','e5','h1','h2','h3','h4','h5',\
        't1','t2','t3','t4','t5']
 
-class stnHPatches(keras.utils.Sequence):
+class STNHPatches(keras.utils.Sequence):
     """Class for loading an HPatches sequence from a sequence folder"""
     itr = tps
     def __init__(self, seqs, batch_size = 32):
