@@ -18,9 +18,7 @@ tps = ['ref','e1','e2','e3','e4','e5','h1','h2','h3','h4','h5',\
 
 class stnHPatches(keras.utils.Sequence):
     """Class for loading an HPatches sequence from a sequence folder"""
-    itr = ['e1','e2','e3','e4','e5','h1','h2','h3','h4','h5',\
-       't1','t2','t3','t4','t5']
-
+    itr = tps
     def __init__(self, seqs, batch_size = 32):
         self.all_paths = []
         self.batch_size = batch_size
