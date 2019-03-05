@@ -71,7 +71,7 @@ class stnHPatches(keras.utils.Sequence):
 
     def on_epoch_end(self):
         # 'Updates indexes after each epoch'
-        random.shuffle(self.all_paths))
+        random.shuffle(self.all_paths)
 		
 
 class DenoiseHPatches(keras.utils.Sequence):
