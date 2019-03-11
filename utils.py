@@ -1,4 +1,4 @@
-from read_data import tps, hpatches_sequence_folder, DenoiseHPatches
+from read_data import tps, hpatches_sequence_folder, DenoiseHPatches, STNHPatches
 import csv
 import cv2
 import numpy as np
@@ -11,17 +11,17 @@ def plot_triplet(generator):
     a = next(iter(generator))
     index = np.random.randint(0, a[0]['a'].shape[0])
     plt.subplot(131)
-    plt.imshow(a[0]['a'][index,:,:,0], cmap='gray') 
+    plt.imshow(a[0]['a'][index,:,:,0], cmap='gray')
     plt.gca().set_xticks([])
     plt.gca().set_yticks([])
     plt.title('Anchor', fontsize=20)
     plt.subplot(132)
-    plt.imshow(a[0]['p'][index,:,:,0], cmap='gray') 
+    plt.imshow(a[0]['p'][index,:,:,0], cmap='gray')
     plt.title('Positive', fontsize=20)
     plt.gca().set_xticks([])
     plt.gca().set_yticks([])
     plt.subplot(133)
-    plt.imshow(a[0]['n'][index,:,:,0], cmap='gray') 
+    plt.imshow(a[0]['n'][index,:,:,0], cmap='gray')
     plt.title('Negative', fontsize=20)
     plt.gca().set_xticks([])
     plt.gca().set_yticks([])
@@ -38,12 +38,12 @@ def plot_denoise(denoise_model):
     index = np.random.randint(0, imgs.shape[0])
     imgs_den = denoise_model.predict(imgs)
     plt.subplot(131)
-    plt.imshow(imgs[index,:,:,0], cmap='gray') 
+    plt.imshow(imgs[index,:,:,0], cmap='gray')
     plt.title('Noisy', fontsize=20)
     plt.gca().set_xticks([])
     plt.gca().set_yticks([])
     plt.subplot(132)
-    plt.imshow(imgs_den[index,:,:,0], cmap='gray') 
+    plt.imshow(imgs_den[index,:,:,0], cmap='gray')
     plt.title('Denoised', fontsize=20)
     plt.gca().set_xticks([])
     plt.gca().set_yticks([])
@@ -53,6 +53,34 @@ def plot_denoise(denoise_model):
     plt.gca().set_xticks([])
     plt.gca().set_yticks([])
     plt.show()
+
+def plot_stn(stn_model):
+    """Plots a noisy patch, denoised patch and clean patch.
+    Args:
+        denoise_model: keras model to predict clean patch
+    """
+    import matplotlib.pyplot as plt
+    generator = STNHPatches(['./hpatches/v_there'])
+    imgs, imgs_clean = next(iter(generator))
+    index = np.random.randint(0, imgs.shape[0])
+    imgs_den = stn_model.predict(imgs)
+    plt.subplot(131)
+    plt.imshow(imgs[index,:,:,0], cmap='gray')
+    plt.title('Geometric Noise', fontsize=20)
+    plt.gca().set_xticks([])
+    plt.gca().set_yticks([])
+    plt.subplot(132)
+    plt.imshow(imgs_den[index,:,:,0], cmap='gray')
+    plt.title('STN Output', fontsize=20)
+    plt.gca().set_xticks([])
+    plt.gca().set_yticks([])
+    plt.subplot(133)
+    plt.imshow(imgs_clean[index,:,:,0], cmap='gray')
+    plt.title('Original', fontsize=20)
+    plt.gca().set_xticks([])
+    plt.gca().set_yticks([])
+    plt.show()
+
 
 def generate_desc_csv(descriptor_model, seqs_test, denoise_model=None, use_clean=False, curr_desc_name='custom'):
     """Plots a noisy patch, denoised patch and clean patch.
@@ -88,7 +116,7 @@ def generate_desc_csv(descriptor_model, seqs_test, denoise_model=None, use_clean
                 patches_for_net[i, :, :, 0] = cv2.resize(patch[0:w, 0:w], (32,32))
             ###
             outs = []
-            
+
             n_batches = int(n_patches / bs) + 1
             for batch_idx in range(n_batches):
                 st = batch_idx * bs
