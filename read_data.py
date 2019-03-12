@@ -415,7 +415,8 @@ class DataGeneratorDescRegularised(keras.utils.Sequence):
         self.labels = labels
         self.num_triplets = num_triplets
         self.on_epoch_end()
-        self.__getitem__(0)
+        tmp = self.__getitem__(0)
+        print(tmp[0]['alpha'].shape)
 
     def get_image(self, t):
         def transform_img(img):
@@ -467,6 +468,7 @@ class DataGeneratorDescRegularised(keras.utils.Sequence):
                 img_n[i] = img_n_t
             alpha[i] = t[3]
 
+        alpha = np.expand_dims(alpha, -1)
         return {'a': img_a, 'p': img_p, 'n': img_n, 'alpha': alpha}, y
 
     def on_epoch_end(self):
