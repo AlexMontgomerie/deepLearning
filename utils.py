@@ -4,6 +4,7 @@ import cv2
 import numpy as np
 import os
 from tqdm import tqdm
+import tensorflow as tf
 
 
 def plot_triplet(generator):
@@ -26,6 +27,46 @@ def plot_triplet(generator):
     plt.gca().set_xticks([])
     plt.gca().set_yticks([])
     plt.show()
+
+def sobel_f(img):
+  img = tf.convert_to_tensor(img, dtype=tf.float32)
+  print(img.shape)
+  tmp = tf.image.sobel_edges(img)[:,:,:,0]
+  print(tmp.shape)
+  tmp =  tf.multiply(tmp[:,:,:,0],tmp[:,:,:,1])
+  print(tmp.shape)
+  tmp = tf.expand_dims(tmp,3)
+  #print(tmp.shape)
+  print(tmp)
+  with tf.Session() as sess:
+    tmp = tmp.eval()
+    print(tmp.shape)
+    return tmp
+
+def plot_sobel():
+    """Plots a noisy patch, denoised patch and clean patch.
+    Args:
+        denoise_model: keras model to predict clean patch
+    """
+    import matplotlib.pyplot as plt
+    generator = DenoiseHPatches(['./hpatches/v_there'])
+    imgs, imgs_clean = next(iter(generator))
+    index = np.random.randint(0, imgs.shape[0])
+    imgs_sobel = sobel_f(imgs_clean)
+    #imgs_sobel = np.array(imgs_sobel)
+    plt.subplot(121)
+    plt.imshow(imgs_sobel[index,:,:,0], cmap='gray')
+    #plt.imshow(imgs_sobel, cmap='gray')
+    plt.title('Denoised', fontsize=20)
+    plt.gca().set_xticks([])
+    plt.gca().set_yticks([])
+    plt.subplot(122)
+    plt.imshow(imgs_clean[index,:,:,0], cmap='gray')
+    plt.title('Clean', fontsize=20)
+    plt.gca().set_xticks([])
+    plt.gca().set_yticks([])
+    plt.show()
+
 
 def plot_denoise(denoise_model):
     """Plots a noisy patch, denoised patch and clean patch.
@@ -141,3 +182,6 @@ def generate_desc_csv(descriptor_model, seqs_test, denoise_model=None, use_clean
             res_desc = np.reshape(res_desc, (n_patches, -1))
             out = np.reshape(res_desc, (n_patches, -1))
             np.savetxt(os.path.join(path,tp+'.csv'), out, delimiter=';', fmt='%10.5f')   # X is an array
+
+if __name__ == '__main__':
+    plot_sobel()

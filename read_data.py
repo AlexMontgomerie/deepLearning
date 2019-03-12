@@ -1,4 +1,4 @@
-## Modification from original HardNet implementation in 
+## Modification from original HardNet implementation in
 ## https://raw.githubusercontent.com/DagnyT/hardnet/master/code/dataloaders/HPatchesDatasetCreator.py
 ## I need to clean it a little bit and modify some things, but it works
 
@@ -61,16 +61,16 @@ class STNHPatches(keras.utils.Sequence):
         img_noise = np.empty((self.batch_size,) + self.dim + (self.n_channels,))
 
         for i in range(self.batch_size):
-            img, img_n = self.get_images(index*self.batch_size+i)    
+            img, img_n = self.get_images(index*self.batch_size+i)
             img_clean[i] = np.expand_dims(img, -1)
             img_noise[i] = np.expand_dims(img_n, -1)
 
-        return img_noise, img_clean    
+        return img_noise, img_clean
 
     def on_epoch_end(self):
         # 'Updates indexes after each epoch'
         random.shuffle(self.all_paths)
-		
+
 
 class DenoiseHPatches(keras.utils.Sequence):
     """Class for loading an HPatches sequence from a sequence folder"""
@@ -117,11 +117,11 @@ class DenoiseHPatches(keras.utils.Sequence):
         img_noise = np.empty((self.batch_size,) + self.dim + (self.n_channels,))
 
         for i in range(self.batch_size):
-            img, img_n = self.get_images(index*self.batch_size+i)    
+            img, img_n = self.get_images(index*self.batch_size+i)
             img_clean[i] = np.expand_dims(img, -1)
             img_noise[i] = np.expand_dims(img_n, -1)
 
-        return img_noise, img_clean    
+        return img_noise, img_clean
 
     def on_epoch_end(self):
         # 'Updates indexes after each epoch'
@@ -150,17 +150,23 @@ def generate_triplets(labels, num_triplets, batch_size):
     def create_indices(_labels):
         inds = dict()
         for idx, ind in enumerate(_labels):
+            print(idx, ind)
             if ind not in inds:
                 inds[ind] = []
             inds[ind].append(idx)
         return inds
     triplets = []
+    print(labels)
+    with open('tmp.txt','w') as f:
+        import json
+        json.dump(labels,f)
     indices = create_indices(np.asarray(labels))
+    #print(indices)
     unique_labels = np.unique(np.asarray(labels))
     n_classes = unique_labels.shape[0]
     # add only unique indices in batch
     already_idxs = set()
-    
+
     for x in tqdm(range(num_triplets)):
         if len(already_idxs) >= batch_size:
             already_idxs = set()
@@ -181,7 +187,6 @@ def generate_triplets(labels, num_triplets, batch_size):
         n3 = np.random.randint(0, len(indices[c2]))
         triplets.append([indices[c1][n1], indices[c1][n2], indices[c2][n3]])
     return np.array(triplets)
-
 
 class HPatches():
     def __init__(self, train=True, transform=None, download=False, train_fnames=[],
@@ -293,7 +298,7 @@ class DataGeneratorDesc(keras.utils.Sequence):
     def __len__(self):
         '''Denotes the number of batches per epoch'''
         return int(np.floor(len(self.triplets) / self.batch_size))
-                
+
     def __getitem__(self, index):
         y = np.zeros((self.batch_size, 1))
         img_a = np.empty((self.batch_size,) + self.dim + (self.n_channels,))
@@ -301,7 +306,7 @@ class DataGeneratorDesc(keras.utils.Sequence):
         if self.out_triplets:
             img_n = np.empty((self.batch_size,) + self.dim + (self.n_channels,))
         for i in range(self.batch_size):
-            t = self.triplets[self.batch_size*index + i]    
+            t = self.triplets[self.batch_size*index + i]
             img_a_t, img_p_t, img_n_t = self.get_image(t)
             img_a[i] = img_a_t
             img_p[i] = img_p_t
@@ -314,5 +319,179 @@ class DataGeneratorDesc(keras.utils.Sequence):
         # 'Updates indexes after each epoch'
         self.triplets = generate_triplets(self.labels, self.num_triplets, 32)
 
-    
-    
+#####################################################
+
+def generate_triplets_regularised(labels, num_triplets, batch_size):
+
+    triplets = []
+
+    for x in tqdm(range(num_triplets)):
+
+        im1 = random.choice([key for key in labels])
+        im2 = random.choice([key for key in labels])
+
+        tp1 = random.choice([ key for key in labels[im1] ])
+        tp2 = random.choice([ key for key in labels[im1] ])
+        tp3 = random.choice([ key for key in labels[im2] ])
+
+        idx1 = random.choice(labels[im1][tp1])
+        idx2 = random.choice(labels[im1][tp3])
+
+        penalty = 1
+
+        if im1 == im2:
+            penalty = 0.75
+
+        if im1 == im2 and idx1 == idx2:
+            penalty = 0
+
+        triplets.append([ (im1,tp1,idx1), (im1,tp2,idx1), (im2,tp3,idx2), penalty ])
+
+    return np.array(triplets)
+
+class HPatchesRegularised():
+    def __init__(self, train=True, transform=None, download=False, train_fnames=[],
+                 test_fnames=[], denoise_model=None, use_clean=False):
+        self.train = train
+        self.transform = transform
+        self.train_fnames = train_fnames
+        self.test_fnames = test_fnames
+        self.denoise_model = denoise_model
+        self.use_clean = use_clean
+
+    def read_image_file(self, data_dir, train = 1):
+        """Return a Tensor containing the patches
+        """
+        if self.denoise_model and not self.use_clean:
+            print('Using denoised patches')
+        elif not self.denoise_model and not self.use_clean:
+            print('Using noisy patches')
+        elif self.use_clean:
+            print('Using clean patches')
+        sys.stdout.flush()
+        patches = {}
+        labels = {}
+        counter = 0
+        hpatches_sequences = [x[1] for x in os.walk(data_dir)][0]
+        if train:
+            list_dirs = self.train_fnames
+        else:
+            list_dirs = self.test_fnames
+
+        for directory in tqdm(hpatches_sequences, file=sys.stdout):
+            if (directory in list_dirs):
+                labels[directory] = {}
+                patches[directory] = {}
+                for tp in tps:
+                    labels[directory][tp] = []
+                    patches[directory][tp] = []
+                    if self.use_clean:
+                        sequence_path = os.path.join(data_dir, directory, tp)+'.png'
+                    else:
+                        sequence_path = os.path.join(data_dir, directory, tp)+'_noise.png'
+                    image = cv2.imread(sequence_path, 0)
+                    h, w = image.shape
+                    n_patches = int(h / w)
+                    for i in range(n_patches):
+                        patch = image[i * (w): (i + 1) * (w), 0:w]
+                        patch = cv2.resize(patch, (32, 32))
+                        patch = np.array(patch, dtype=np.uint8)
+                        patches[directory][tp].append(patch)
+                        labels[directory][tp].append(i)
+
+        return patches, labels
+
+class DataGeneratorDescRegularised(keras.utils.Sequence):
+    # 'Generates data for Keras'
+    def __init__(self, data, labels, num_triplets = 1000000, batch_size=50, dim=(32,32), n_channels=1, shuffle=True):
+        # 'Initialization'
+        self.transform = None
+        self.out_triplets = True
+        self.dim = dim
+        self.batch_size = batch_size
+        self.n_channels = n_channels
+        self.shuffle = shuffle
+        self.data = data
+        self.labels = labels
+        self.num_triplets = num_triplets
+        self.on_epoch_end()
+
+    def get_image(self, t):
+        def transform_img(img):
+            if self.transform is not None:
+                img = transform(img.numpy())
+            return img
+
+        im1 = t[0][0]
+        im2 = t[2][0]
+
+        tp1 = t[0][1]
+        tp2 = t[1][1]
+        tp3 = t[2][1]
+
+        idx1 = t[0][2]
+        idx2 = t[2][2]
+
+        a, p, n = self.data[im1][tp1][idx1], self.data[im1][tp2][idx1], self.data[im2][tp3][idx2]
+
+        img_a = transform_img(a).astype(float)
+        img_p = transform_img(p).astype(float)
+        img_n = transform_img(n).astype(float)
+
+        img_a = np.expand_dims(img_a, -1)
+        img_p = np.expand_dims(img_p, -1)
+        img_n = np.expand_dims(img_n, -1)
+        if self.out_triplets:
+            return img_a, img_p, img_n
+        else:
+            return img_a, img_p
+
+    def __len__(self):
+        '''Denotes the number of batches per epoch'''
+        return int(np.floor(len(self.triplets) / self.batch_size))
+
+    def __getitem__(self, index):
+        y = np.zeros((self.batch_size, 1))
+        img_a = np.empty((self.batch_size,) + self.dim + (self.n_channels,))
+        img_p = np.empty((self.batch_size,) + self.dim + (self.n_channels,))
+        alpha = np.zeros(self.batch_size)
+        if self.out_triplets:
+            img_n = np.empty((self.batch_size,) + self.dim + (self.n_channels,))
+        for i in range(self.batch_size):
+            t = self.triplets[self.batch_size*index + i]
+            img_a_t, img_p_t, img_n_t = self.get_image(t)
+            img_a[i] = img_a_t
+            img_p[i] = img_p_t
+            if self.out_triplets:
+                img_n[i] = img_n_t
+            alpha[i] = t[3]
+
+        return {'a': img_a, 'p': img_p, 'n': img_n, 'alpha': alpha}, y
+
+    def on_epoch_end(self):
+        # 'Updates indexes after each epoch'
+        self.triplets = generate_triplets_regularised(self.labels, self.num_triplets, 32)
+
+if __name__ == '__main__':
+    hpatches_dir = './hpatches'
+    splits_path = './splits.json'
+
+    splits_json = json.load(open(splits_path, 'rb'))
+    split = splits_json['a']
+
+    train_fnames = split['train']
+    test_fnames = split['test']
+
+    seqs = glob.glob(hpatches_dir+'/*')
+    seqs = [os.path.abspath(p) for p in seqs]
+    seqs_train = list(filter(lambda x: x.split('/')[-1] in train_fnames, seqs))
+    seqs_test = list(filter(lambda x: x.split('/')[-1] in split['test'], seqs))
+
+    ### Descriptor loading and training
+    # Loading images
+    hPatches = HPatchesRegularised(train_fnames=train_fnames, test_fnames=test_fnames,
+                        use_clean=False)
+    # Creating training generator
+    training_generator = DataGeneratorDescRegularised(*hPatches.read_image_file(hpatches_dir, train=1), num_triplets=100000, batch_size=500)
+    # Creating validation generator
+    val_generator = DataGeneratorDescRegularised(*hPatches.read_image_file(hpatches_dir, train=0), num_triplets=10000, batch_size=500)
