@@ -335,7 +335,7 @@ def generate_triplets_regularised(labels, num_triplets, batch_size):
         tp3 = random.choice([ key for key in labels[im2] ])
 
         idx1 = random.choice(labels[im1][tp1])
-        idx2 = random.choice(labels[im1][tp3])
+        idx2 = random.choice(labels[im2][tp3])
 
         penalty = 1
 
@@ -415,6 +415,7 @@ class DataGeneratorDescRegularised(keras.utils.Sequence):
         self.labels = labels
         self.num_triplets = num_triplets
         self.on_epoch_end()
+        self.__getitem__(0)
 
     def get_image(self, t):
         def transform_img(img):
@@ -464,7 +465,7 @@ class DataGeneratorDescRegularised(keras.utils.Sequence):
             img_p[i] = img_p_t
             if self.out_triplets:
                 img_n[i] = img_n_t
-            alpha[i] = [t[3]]
+            alpha[i] = t[3]
 
         return {'a': img_a, 'p': img_p, 'n': img_n, 'alpha': alpha}, y
 
