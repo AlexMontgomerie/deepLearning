@@ -464,7 +464,7 @@ class DataGeneratorDescRegularised(keras.utils.Sequence):
             img_p[i] = img_p_t
             if self.out_triplets:
                 img_n[i] = img_n_t
-            alpha[i] = t[3]
+            alpha[i] = [t[3]]
 
         return {'a': img_a, 'p': img_p, 'n': img_n, 'alpha': alpha}, y
 
