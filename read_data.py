@@ -150,18 +150,15 @@ def generate_triplets(labels, num_triplets, batch_size):
     def create_indices(_labels):
         inds = dict()
         for idx, ind in enumerate(_labels):
-            print(idx, ind)
             if ind not in inds:
                 inds[ind] = []
             inds[ind].append(idx)
         return inds
     triplets = []
-    print(labels)
     with open('tmp.txt','w') as f:
         import json
         json.dump(labels,f)
     indices = create_indices(np.asarray(labels))
-    #print(indices)
     unique_labels = np.unique(np.asarray(labels))
     n_classes = unique_labels.shape[0]
     # add only unique indices in batch
