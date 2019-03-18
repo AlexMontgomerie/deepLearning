@@ -318,7 +318,7 @@ class DataGeneratorDesc(keras.utils.Sequence):
 
 #####################################################
 
-def generate_triplets_regularised(labels, num_triplets, batch_size):
+def generate_triplets_regularised(alpha, labels, num_triplets, batch_size):
 
     triplets = []
 
@@ -347,7 +347,7 @@ def generate_triplets_regularised(labels, num_triplets, batch_size):
     return np.array(triplets)
 
 class HPatchesRegularised():
-    def __init__(self, train=True, transform=None, download=False, train_fnames=[],
+    def __init__(self, alpha=1, train=True, transform=None, download=False, train_fnames=[],
                  test_fnames=[], denoise_model=None, use_clean=False):
         self.train = train
         self.transform = transform
@@ -355,6 +355,7 @@ class HPatchesRegularised():
         self.test_fnames = test_fnames
         self.denoise_model = denoise_model
         self.use_clean = use_clean
+        self.alpha = alpha
 
     def read_image_file(self, data_dir, train = 1):
         """Return a Tensor containing the patches
@@ -400,7 +401,7 @@ class HPatchesRegularised():
 
 class DataGeneratorDescRegularised(keras.utils.Sequence):
     # 'Generates data for Keras'
-    def __init__(self, data, labels, num_triplets = 1000000, batch_size=50, dim=(32,32), n_channels=1, shuffle=True):
+    def __init__(self, alpha=1, data, labels, num_triplets = 1000000, batch_size=50, dim=(32,32), n_channels=1, shuffle=True):
         # 'Initialization'
         self.transform = None
         self.out_triplets = True
@@ -411,9 +412,8 @@ class DataGeneratorDescRegularised(keras.utils.Sequence):
         self.data = data
         self.labels = labels
         self.num_triplets = num_triplets
+        self.alpha=alpha
         self.on_epoch_end()
-        tmp = self.__getitem__(0)
-        print(tmp[0]['alpha'].shape)
 
     def get_image(self, t):
         def transform_img(img):
@@ -470,7 +470,7 @@ class DataGeneratorDescRegularised(keras.utils.Sequence):
 
     def on_epoch_end(self):
         # 'Updates indexes after each epoch'
-        self.triplets = generate_triplets_regularised(self.labels, self.num_triplets, 32)
+        self.triplets = generate_triplets_regularised(self.alpha, self.labels, self.num_triplets, 32)
 
 if __name__ == '__main__':
     hpatches_dir = './hpatches'
