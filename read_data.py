@@ -337,7 +337,7 @@ def generate_triplets_regularised(labels, num_triplets, batch_size):
         penalty = 1
 
         if im1 == im2:
-            penalty = 0.75
+            penalty = 0.5
 
         if im1 == im2 and idx1 == idx2:
             penalty = 0
