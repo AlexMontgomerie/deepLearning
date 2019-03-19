@@ -401,7 +401,7 @@ class HPatchesRegularised():
 
 class DataGeneratorDescRegularised(keras.utils.Sequence):
     # 'Generates data for Keras'
-    def __init__(self, alpha=1, data, labels, num_triplets = 1000000, batch_size=50, dim=(32,32), n_channels=1, shuffle=True):
+    def __init__(self, alpha, data, labels, num_triplets = 1000000, batch_size=50, dim=(32,32), n_channels=1, shuffle=True):
         # 'Initialization'
         self.transform = None
         self.out_triplets = True
