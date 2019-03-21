@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.24)  19 FEB 2019 22:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.24)  21 MAR 2019 12:53
 entering extended mode
 **./egpaper_final.tex
 (egpaper_final.tex
@@ -145,6 +145,14 @@ Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
+("C:\Program Files\MiKTeX 2.9\tex/latex/float\float.sty"
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count105
+\float@exts=\toks20
+\float@box=\box31
+\@float@everytoks=\toks21
+\@floatcapt=\box32
+)
 ("C:\Program Files\MiKTeX 2.9\tex/latex/hyperref\hyperref.sty"
 Package: hyperref 2018/11/30 v6.88e Hypertext links for LaTeX
 
@@ -198,15 +206,15 @@ Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
 Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
 )
 \@linkdim=\dimen119
-\Hy@linkcounter=\count105
-\Hy@pagecounter=\count106
+\Hy@linkcounter=\count106
+\Hy@pagecounter=\count107
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/hyperref\pd1enc.def"
 File: pd1enc.def 2018/11/30 v6.88e Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
 )
-\Hy@SavedSpaceFactor=\count107
+\Hy@SavedSpaceFactor=\count108
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/00miktex\hyperref.cfg"
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
@@ -220,7 +228,7 @@ Package hyperref Info: Plain pages OFF on input line 4534.
 Package hyperref Info: Backreferencing OFF on input line 4539.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks OFF on input line 4778.
-\c@Hy@tempcnt=\count108
+\c@Hy@tempcnt=\count109
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/url\url.sty"
 \Urlmuskip=\muskip11
@@ -228,7 +236,7 @@ Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 5125.
 \XeTeXLinkMargin=\dimen120
-\Fld@menulength=\count109
+\Fld@menulength=\count110
 \Field@Width=\dimen121
 \Fld@charsize=\dimen122
 Package hyperref Info: Hyper figures OFF on input line 6380.
@@ -240,16 +248,16 @@ Package hyperref Info: Link coloring with OCG OFF on input line 6405.
 Package hyperref Info: PDF/A mode OFF on input line 6410.
 LaTeX Info: Redefining \ref on input line 6450.
 LaTeX Info: Redefining \pageref on input line 6454.
-\Hy@abspage=\count110
-\c@Item=\count111
-\c@Hfootnote=\count112
+\Hy@abspage=\count111
+\c@Item=\count112
+\c@Hfootnote=\count113
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/hyperref\hpdftex.def"
 File: hpdftex.def 2018/11/30 v6.88e Hyperref driver for pdfTeX
-\Fld@listcount=\count113
-\c@bookmark@seq@number=\count114
+\Fld@listcount=\count114
+\c@bookmark@seq@number=\count115
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/oberdiek\rerunfilecheck.sty"
 Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
@@ -261,21 +269,21 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 (egpaper_final.aux)
 \openout1 = `egpaper_final.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 25.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 30.
  ("C:\Program Files\MiKTeX 2.9\tex/latex/psnfss\ot1ptm.fd"
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
@@ -290,17 +298,17 @@ Package color Info: Driver file: pdftex.def on input line 147.
 )
 ("C:\Program Files\MiKTeX 2.9\tex/context/base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count115
+\scratchcounter=\count116
 \scratchdimen=\dimen123
-\scratchbox=\box31
-\nofMPsegments=\count116
-\nofMParguments=\count117
-\everyMPshowfont=\toks20
-\MPscratchCnt=\count118
+\scratchbox=\box33
+\nofMPsegments=\count117
+\nofMParguments=\count118
+\everyMPshowfont=\toks22
+\MPscratchCnt=\count119
 \MPscratchDim=\dimen124
-\MPnumerator=\count119
-\makeMPintoPDFobject=\count120
-\everyMPtoPDFconversion=\toks21
+\MPnumerator=\count120
+\makeMPintoPDFobject=\count121
+\everyMPtoPDFconversion=\toks23
 ) ("C:\Program Files\MiKTeX 2.9\tex/latex/oberdiek\epstopdf-base.sty"
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
@@ -314,9 +322,9 @@ Package grfext Info: Graphics extension search list:
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 )
-\AtBeginShipoutBox=\box32
+\AtBeginShipoutBox=\box34
 Package atbegshi Info: Package `everyshi' patched.
-Package hyperref Info: Link coloring OFF on input line 25.
+Package hyperref Info: Link coloring OFF on input line 30.
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/hyperref\nameref.sty"
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -324,91 +332,455 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 ("C:\Program Files\MiKTeX 2.9\tex/generic/oberdiek\gettitlestring.sty"
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count121
+\c@section@level=\count122
 )
-LaTeX Info: Redefining \ref on input line 25.
-LaTeX Info: Redefining \pageref on input line 25.
-LaTeX Info: Redefining \nameref on input line 25.
+LaTeX Info: Redefining \ref on input line 30.
+LaTeX Info: Redefining \pageref on input line 30.
+LaTeX Info: Redefining \nameref on input line 30.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 36.
-LaTeX Font Info:    Try loading font information for U+msa on input line 36.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 45.
+LaTeX Font Info:    Try loading font information for U+msa on input line 45.
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 36.
+LaTeX Font Info:    Try loading font information for U+msb on input line 45.
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 36.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 45.
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/psnfss\ot1pcr.fd"
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 38.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 48.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <10> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 51.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 65.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 96.
 
 
-LaTeX Warning: Reference `fig:denoise_loss' on page 1 undefined on input line 6
+LaTeX Warning: Citation `unet_example' on page 1 undefined on input line 96.
+
+
+LaTeX Warning: Citation `8100132' on page 1 undefined on input line 116.
+
+
+LaTeX Warning: Reference `eq:triplet_loss' on page 1 undefined on input line 11
+7.
+
+[1{C:/Users/X240/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
+
+
+]
+
+LaTeX Warning: File `report/figures/net_overview.png' not found on input line 1
+48.
+
+
+! Package pdftex.def Error: File `report/figures/net_overview.png' not found: u
+sing draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.148 ...newidth]{report/figures/net_overview.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: Reference `fig:full_net' on page 2 undefined on input line 153.
+
+
+LaTeX Warning: File `report/figures/denoise_net_horizontal.png' not found on in
+put line 170.
+
+
+! Package pdftex.def Error: File `report/figures/denoise_net_horizontal.png' no
+t found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.170 ...eport/figures/denoise_net_horizontal.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: Reference `fig:denoise_net' on page 2 undefined on input line 17
 5.
 
 
-LaTeX Warning: Reference `fig:denoise_images' on page 1 undefined on input line
- 65.
+LaTeX Warning: Citation `ZhangZCM016' on page 2 undefined on input line 175.
 
 
-Underfull \hbox (badness 1337) in paragraph at lines 65--66
-[]\OT1/ptm/m/n/10 This net-work is trained on noisy im-ages eval-u-ated
+LaTeX Warning: Reference `eq:denoise_loss' on page 2 undefined on input line 18
+8.
+
+[2]
+Overfull \hbox (33.1507pt too wide) detected at line 197
+[]
  []
 
 
-LaTeX Warning: Citation `something' on page 1 undefined on input line 80.
+LaTeX Warning: Citation `6467150' on page 3 undefined on input line 205.
+
+
+LaTeX Warning: Citation `7797130' on page 3 undefined on input line 205.
+
+
+LaTeX Warning: Citation `jaderberg2015spatial' on page 3 undefined on input lin
+e 211.
+
+
+LaTeX Warning: Citation `4270182' on page 3 undefined on input line 211.
+
+
+LaTeX Warning: Reference `eq:affine_transform' on page 3 undefined on input lin
+e 227.
+
+
+LaTeX Warning: File `report/figures/stn_network.png' not found on input line 23
+3.
+
+
+! Package pdftex.def Error: File `report/figures/stn_network.png' not found: us
+ing draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.233 ...inewidth]{report/figures/stn_network.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: Citation `jaderberg2015spatial' on page 3 undefined on input lin
+e 238.
+
+
+LaTeX Warning: Reference `fig:stn_output' on page 3 undefined on input line 240
+.
+
+
+LaTeX Warning: Citation `sobel_filter' on page 3 undefined on input line 244.
+
+
+LaTeX Warning: Citation `Arandiga2010' on page 3 undefined on input line 244.
+
+
+LaTeX Warning: File `report/figures/sobel_filter.png' not found on input line 2
+48.
+
+
+! Package pdftex.def Error: File `report/figures/sobel_filter.png' not found: u
+sing draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.248 ...newidth]{report/figures/sobel_filter.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: Reference `fig:sobel_filter_output' on page 3 undefined on input
+ line 253.
+
+[3]
+
+LaTeX Warning: Reference `tab:denoise_loss' on page 4 undefined on input line 2
+97.
+
+
+LaTeX Warning: Reference `tab:alpha_eval' on page 4 undefined on input line 314
+.
+
+
+LaTeX Warning: Reference `fig:stn_output' on page 4 undefined on input line 346
+.
+
+
+LaTeX Warning: File `report/figures/stn_out.png' not found on input line 350.
+
+
+! Package pdftex.def Error: File `report/figures/stn_out.png' not found: using 
+draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.350 ...85\linewidth]{report/figures/stn_out.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: Reference `fig:triplet_loss_weight_init' on page 4 undefined on 
+input line 358.
+
+
+! LaTeX Error: Environment subfigure undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.364      \begin{subfigure}
+                            [b]{0.35\textwidth}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.364      \begin{subfigure}[b]{0.35\textwidth}
+                                               
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   }
+l.364      \begin{subfigure}[b]{0.35\textwidth}
+                                               
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+
+LaTeX Warning: File `report/figures/loss_0.png' not found on input line 366.
+
+
+! Package pdftex.def Error: File `report/figures/loss_0.png' not found: using d
+raft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.366 ...th=\textwidth]{report/figures/loss_0.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Overfull \hbox (259.7203pt too wide) in paragraph at lines 364--367
+ [] 
+ []
+
+
+! LaTeX Error: \begin{figure} on input line 362 ended by \end{subfigure}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.369      \end{subfigure}
+                          
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: Environment subfigure undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.376      \begin{subfigure}
+                            [b]{0.35\textwidth}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   }
+l.376      \begin{subfigure}[b]{0.35\textwidth}
+                                               
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   }
+l.376      \begin{subfigure}[b]{0.35\textwidth}
+                                               
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+
+LaTeX Warning: File `report/figures/loss_2.png' not found on input line 378.
+
+
+! Package pdftex.def Error: File `report/figures/loss_2.png' not found: using d
+raft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.378 ...th=\textwidth]{report/figures/loss_2.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Overfull \hbox (259.7203pt too wide) in paragraph at lines 376--379
+ [] 
+ []
+
+
+! LaTeX Error: \begin{figure} on input line 362 ended by \end{subfigure}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.381      \end{subfigure}
+                          
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[4]
+Overfull \vbox (423.47775pt too high) has occurred while \output is active []
+
 
 (egpaper_final.bbl
 Underfull \hbox (badness 1622) in paragraph at lines 4--8
 []\OT1/ptm/m/n/9 V. Bal-ntas, K. Lenc, A. Vedaldi, and K. Miko-la-jczyk.
  []
 
+)
 
-Underfull \vbox (badness 2050) has occurred while \output is active []
+LaTeX Warning: Reference `eq:denoise_loss' on page 5 undefined on input line 40
+1.
 
- [1{C:/Users/X240/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
+
+LaTeX Warning: Reference `fig:descriptor_loss' on page 5 undefined on input lin
+e 401.
+
+<figures/denoise_train.png, id=63, 496.85625pt x 360.34625pt>
+File: figures/denoise_train.png Graphic file (type png)
+<use figures/denoise_train.png>
+Package pdftex.def Info: figures/denoise_train.png  used on input line 405.
+(pdftex.def)             Requested size: 154.1369pt x 111.78865pt.
+<figures/descriptor_train.png, id=65, 508.90125pt x 360.34625pt>
+File: figures/descriptor_train.png Graphic file (type png)
+<use figures/descriptor_train.png>
+Package pdftex.def Info: figures/descriptor_train.png  used on input line 413.
+(pdftex.def)             Requested size: 154.1369pt x 109.1439pt.
+
+LaTeX Warning: Reference `fig:denoise_image' on page 5 undefined on input line 
+420.
 
 
-])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 87.
- [2
+LaTeX Warning: File `report/figures/denoise_image.png' not found on input line 
+424.
+
+
+! Package pdftex.def Error: File `report/figures/denoise_image.png' not found: 
+using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.424 ...ewidth]{report/figures/denoise_image.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[5 <./figures/denoise_train.png> <./figures/descriptor_train.png>]
+
+LaTeX Warning: Reference `fig:denoise_weights' on page 6 undefined on input lin
+e 429.
+
+
+LaTeX Warning: File `report/figures/denoise_weights.png' not found on input lin
+e 433.
+
+
+! Package pdftex.def Error: File `report/figures/denoise_weights.png' not found
+: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.433 ...idth]{report/figures/denoise_weights.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 442--446
+
+ []
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 448.
+[6
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 87.
-
-(egpaper_final.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 87.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 87.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 448.
+ (egpaper_final.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 448.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 448.
 
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 87.
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 448.
  ) 
 Here is how much of TeX's memory you used:
- 6194 strings out of 492946
- 88630 string characters out of 3135530
- 183855 words of memory out of 3000000
- 9996 multiletter control sequences out of 15000+200000
- 24829 words of font info for 55 fonts, out of 3000000 for 9000
+ 6356 strings out of 492946
+ 90811 string characters out of 3135530
+ 190208 words of memory out of 3000000
+ 10095 multiletter control sequences out of 15000+200000
+ 34861 words of font info for 77 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 32i,9n,27p,759b,473s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 32i,18n,27p,750b,332s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/Mi
-KTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/
-type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/u
-tmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on egpaper_final.pdf (2 pages, 60621 bytes).
+KTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9
+/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
+ype1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
+ic/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
+ts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy
+10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/Prog
+ram Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 
+2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
+urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a
+.pfb>
+Output written on egpaper_final.pdf (6 pages, 190618 bytes).
 PDF statistics:
- 47 PDF objects out of 1000 (max. 8388607)
- 13 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 134 PDF objects out of 1000 (max. 8388607)
+ 47 named destinations out of 1000 (max. 500000)
+ 11 words of extra memory for PDF output out of 10000 (max. 10000000)
 

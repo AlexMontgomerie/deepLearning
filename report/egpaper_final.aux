@@ -18,15 +18,68 @@
 \providecommand\HyField@AuxAddToCoFields[2]{}
 \citation{hpatches_2017_cvpr}
 \citation{RonnebergerFB15}
-\citation{something}
-\bibstyle{ieee}
-\bibdata{egbib}
-\bibcite{hpatches_2017_cvpr}{1}
+\citation{unet_example}
+\citation{8100132}
 \@writefile{toc}{\contentsline {section}{\numberline {1}\hskip -1em.\nobreakspace  {}Introduction}{1}{section.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.1}\hskip -1em.\nobreakspace  {}Dataset}{1}{subsection.1.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.2}\hskip -1em.\nobreakspace  {}Tasks}{1}{subsection.1.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {2}\hskip -1em.\nobreakspace  {}Baseline Approach}{1}{section.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1}\hskip -1em.\nobreakspace  {}Patch Denoising}{1}{subsection.2.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2}\hskip -1em.\nobreakspace  {}Patch Descriptor}{1}{subsection.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3}\hskip -1em.\nobreakspace  {}Improved Approach}{1}{section.3}\protected@file@percent }
+\citation{ZhangZCM016}
+\newlabel{eq:triplet_loss}{{1}{2}{\hskip -1em.~Patch Descriptor}{equation.2.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}\hskip -1em.\nobreakspace  {}Evaluation}{2}{subsection.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3}\hskip -1em.\nobreakspace  {}Improved Approach}{2}{section.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Overview of full network architecture}}{2}{figure.1}\protected@file@percent }
+\newlabel{fig:full_net}{{1}{2}{Overview of full network architecture}{figure.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}\hskip -1em.\nobreakspace  {}Improved Denoise Network}{2}{subsection.3.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Denoising network architecture.}}{2}{figure.2}\protected@file@percent }
+\newlabel{fig:denoise_net}{{2}{2}{Denoising network architecture}{figure.2}{}}
+\citation{6467150}
+\citation{7797130}
+\citation{jaderberg2015spatial}
+\citation{4270182}
+\citation{jaderberg2015spatial}
+\citation{sobel_filter}
+\citation{Arandiga2010}
+\newlabel{eq:denoise_loss}{{2}{3}{\hskip -1em.~Improved Denoise Network}{equation.3.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}\hskip -1em.\nobreakspace  {}Improved Descriptor Network}{3}{subsection.3.2}\protected@file@percent }
+\newlabel{eq:affine_transform}{{3}{3}{\hskip -1em.~Improved Descriptor Network}{equation.3.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces STN Layer diagram.}}{3}{figure.3}\protected@file@percent }
+\newlabel{fig:stn_diagram}{{3}{3}{STN Layer diagram}{figure.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Sobel Filter output.}}{3}{figure.4}\protected@file@percent }
+\newlabel{fig:sobel_filter_output}{{4}{3}{Sobel Filter output}{figure.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}\hskip -1em.\nobreakspace  {}Evaluation}{4}{subsection.3.3}\protected@file@percent }
+\newlabel{sec:evaluation}{{3.3}{4}{\hskip -1em.~Evaluation}{subsection.3.3}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.1}Denoise Network}{4}{subsubsection.3.3.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Evaluation of number of layers for the denoising network.}}{4}{table.1}\protected@file@percent }
+\newlabel{tab:denoise_loss}{{1}{4}{Evaluation of number of layers for the denoising network}{table.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Evaluation of Loss functions for the denoising.}}{4}{table.2}\protected@file@percent }
+\newlabel{tab:denoise_loss}{{2}{4}{Evaluation of Loss functions for the denoising}{table.2}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.2}Descriptor Network}{4}{subsubsection.3.3.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Evaluation of Loss functions for the denoising.}}{4}{table.3}\protected@file@percent }
+\newlabel{tab:alpha_eval}{{3}{4}{Evaluation of Loss functions for the denoising}{table.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Example of STN Output.}}{4}{figure.5}\protected@file@percent }
+\newlabel{fig:stn_output}{{5}{4}{Example of STN Output}{figure.5}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.3}Improved Network}{4}{subsubsection.3.3.3}\protected@file@percent }
+\bibstyle{ieee}
+\bibdata{egbib}
+\bibcite{hpatches_2017_cvpr}{1}
 \bibcite{RonnebergerFB15}{2}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Triplet Loss, Weight Initialisation}}{5}{figure.6}\protected@file@percent }
+\newlabel{fig:triplet_loss_weight_init}{{6}{5}{Triplet Loss, Weight Initialisation}{figure.6}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Triplet Loss with Regularisation, no Weight Initialisation}}{5}{figure.7}\protected@file@percent }
+\newlabel{fig:triplet_loss_regularised}{{7}{5}{Triplet Loss with Regularisation, no Weight Initialisation}{figure.7}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Training and validation loss for different configurations of the improved network.}}{5}{figure.8}\protected@file@percent }
+\newlabel{fig:training_val_loss_improved}{{8}{5}{Training and validation loss for different configurations of the improved network}{figure.8}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {A}\hskip -1em.\nobreakspace  {}Baseline Training}{5}{appendix.A}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Baseline Denoising Network Loss against Epochs.}}{5}{figure.9}\protected@file@percent }
+\newlabel{fig:denoise_loss}{{9}{5}{Baseline Denoising Network Loss against Epochs}{figure.9}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Baseline Descriptor Network Loss against Epochs.}}{5}{figure.10}\protected@file@percent }
+\newlabel{fig:descriptor_loss}{{10}{5}{Baseline Descriptor Network Loss against Epochs}{figure.10}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {B}\hskip -1em.\nobreakspace  {}Improved Denoise Network Notes}{5}{appendix.B}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Improved Denoising Network Output Example.}}{6}{figure.11}\protected@file@percent }
+\newlabel{fig:denoise_image}{{11}{6}{Improved Denoising Network Output Example}{figure.11}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Visualisation of Denoise Network Weights.}}{6}{figure.12}\protected@file@percent }
+\newlabel{fig:denoise_weights}{{12}{6}{Visualisation of Denoise Network Weights}{figure.12}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {C}\hskip -1em.\nobreakspace  {}Pledge}{6}{appendix.C}\protected@file@percent }
